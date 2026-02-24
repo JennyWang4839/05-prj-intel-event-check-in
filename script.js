@@ -45,6 +45,11 @@ form.addEventListener("submit", function (event) {
 
   welcomeMessage.style.display = "block";
 
+  //Update total attendees
+  const totalAttendees = document.getElementById("attendeeCount");
+
+  totalAttendees.textContent = count;
+
   //Reset form
   form.reset();
 });
