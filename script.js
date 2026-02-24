@@ -1,5 +1,5 @@
 //Get all needed DOM elements
-const form = document.getElementById("check-in-form");
+const form = document.getElementById("checkInForm");
 
 const nameInput = document.getElementById("attendeeName");
 
@@ -39,9 +39,11 @@ form.addEventListener("submit", function (event) {
   teamCounter.textContent = parseInt(teamCounter.textContent) + 1;
 
   //Show welcome message
-  const welcomeMessage = document.getElementById("welcomeMessage");
+  const welcomeMessage = document.getElementById("greeting");
 
   welcomeMessage.textContent = `🎉Welcome, ${name} from ${teamName}!`;
+
+  welcomeMessage.style.display = "block";
 
   //Reset form
   form.reset();
