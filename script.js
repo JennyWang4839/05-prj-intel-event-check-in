@@ -10,6 +10,39 @@ let count = 0;
 
 const maxCount = 50;
 
+//Load saved data from local storage
+window.addEventListener("load", function () {
+  const savedCount = localStorage.getItem("totalAttendees");
+
+  if (savedCount) {
+    count = parseInt(savedCount);
+
+    document.getElementById("attendeeCount").textContent = count;
+
+    const percentage = Math.round((count / maxCount) * 100) + "%";
+
+    document.getElementById("progressBar").style.width = percentage;
+  }
+
+  const savedWater = localStorage.getItem("waterCount");
+
+  if (savedWater) {
+    document.getElementById("waterCount").textContent = savedWater;
+  }
+
+  const savedZero = localStorage.getItem("zeroCount");
+
+  if (savedZero) {
+    document.getElementById("zeroCount").textContent = savedZero;
+  }
+
+  const savedPower = localStorage.getItem("powerCount");
+
+  if (savedPower) {
+    document.getElementById("powerCount").textContent = savedPower;
+  }
+});
+
 //Handle form submission
 form.addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent form from submitting normally
@@ -54,6 +87,16 @@ form.addEventListener("submit", function (event) {
   const progressBar = document.getElementById("progressBar");
 
   progressBar.style.width = percentage;
+
+  //Saves attendee data to local storage
+  localStorage.setItem("totalAttendees", count);
+
+  localStorage.setItem("zeroCount", document.
+  getElementById("zeroCount").textContent);
+
+  localStorage.setItem("waterCount", document.getElementById("waterCount").textContent);
+
+  localStorage.setItem("powerCount", document.getElementById("powerCount").textContent);
 
   //Reset form
   form.reset();
