@@ -50,6 +50,11 @@ form.addEventListener("submit", function (event) {
 
   totalAttendees.textContent = count;
 
+  //Update progress bar
+  const progressBar = document.getElementById("progressBar");
+
+  progressBar.style.width = percentage;
+
   //Reset form
   form.reset();
 });
